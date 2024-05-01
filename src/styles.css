@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeflex/primeflex.css";
+/* @import "primeflex/themes/primeone-light.css"; */
+@import url("../node_modules/primeng/resources/themes/lara-dark-amber/theme.css");
+@import "primeicons/primeicons.css";
+@import url("../node_modules/primeng/resources/primeng.min.css");
+
+body {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
