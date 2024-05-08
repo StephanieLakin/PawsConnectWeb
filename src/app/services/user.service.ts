@@ -40,22 +40,23 @@ export class UserService {
 
 
   register(user: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users/register`, user);
+    return this.http.post(`${this.apiUrl}/register`, user);
   }
 
-  login(credentials: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users/login`, credentials);
+  login(username: string, email: string, password: string): Observable<any> {
+    const credentials = { username, email, password };
+    return this.http.post(`${this.apiUrl}/login`, credentials);
   }
 
   verify(token: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users/verify`, { token });
+    return this.http.post(`${this.apiUrl}/verify`, { token });
   }
 
   forgotPassword(email: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users/forgot-password`, { email });
+    return this.http.post(`${this.apiUrl}/forgot-password`, { email });
   }
 
   resetPassword(request: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/users/password-reset`, request);
+    return this.http.post(`${this.apiUrl}/password-reset`, request);
   }
 }

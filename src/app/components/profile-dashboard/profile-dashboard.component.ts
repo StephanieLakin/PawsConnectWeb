@@ -37,4 +37,8 @@ export class ProfileDashboardComponent implements OnInit {
     this.router.navigate(['registration']);
     }
 
+    login() {
+      this.router.navigate(['login']);
+      }
+
 }

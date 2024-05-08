@@ -21,6 +21,14 @@ import { PasswordModule } from 'primeng/password';
 import {StyleClassModule} from 'primeng/styleclass';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { DogProfileComponent } from './components/dog-profile/dog-profile.component';
+import { HealthRecordComponent } from './components/health-record/health-record.component';
+import { LostAndFoundComponent } from './components/lost-and-found/lost-and-found.component';
+import { ServiceMarketplaceComponent } from './components/service-marketplace/service-marketplace.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { CommunityEngagementComponent } from './components/community-engagement/community-engagement.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { GalleriaModule } from 'primeng/galleria';
 
 @NgModule({
   declarations: [
@@ -28,7 +36,13 @@ import { ToastModule } from 'primeng/toast';
     LoginComponent,
     RegistrationComponent,
     ProfileDashboardComponent,
-    
+    DogProfileComponent,
+    HealthRecordComponent,
+    LostAndFoundComponent,
+    ServiceMarketplaceComponent,
+    MenuComponent,
+    CommunityEngagementComponent,
+    FooterComponent    
   ],
   imports: [
     BrowserModule,
@@ -41,7 +55,8 @@ import { ToastModule } from 'primeng/toast';
     CheckboxModule,
     StyleClassModule,
     BrowserAnimationsModule,
-    ToastModule      
+    ToastModule,
+    GalleriaModule     
   ],
   providers: [MessageService ],
   bootstrap: [AppComponent]
