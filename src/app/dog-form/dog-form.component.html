@@ -1,0 +1,115 @@
+<!-- <p>dog-form works!</p>
+<h1>{{ dogId ? 'Edit Dog' : 'New Dog' }}</h1>
+<form [formGroup]="dogForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name:</label>
+  <input id="name" formControlName="name">
+
+  <label for="breed">Breed:</label>
+  <input id="breed" formControlName="breed">
+
+  <label for="description">Description:</label>
+  <input id="description" formControlName="description">
+
+  <label for="gender">Gender:</label>
+  <input id="gender" formControlName="gender">
+
+  <label for="weight">Weight:</label>
+  <input id="weight" formControlName="weight">
+
+  <label for="dateOfBirth">DOB:</label>
+  <input id="dateOfBirth" formControlName="dateOfBirth">
+
+  <label for="medicalHistory">Medical History:</label>
+  <input id="medicalHistory" formControlName="medicalHistory">
+
+  <input id="allergies" formControlName="allergies">
+  <label for="allergies">Allergies:</label>
+
+  <label for="image1">Image 1:</label>
+  <input type="file" (change)="onFileChange($event, 'image1')">
+
+  <label for="image2">Image 2:</label>
+  <input type="file" (change)="onFileChange($event, 'image2')">
+
+  <label for="image3">Image 3:</label>
+  <input type="file" (change)="onFileChange($event, 'image3')">
+
+  <button type="submit">{{ dogId ? 'Update' : 'Create' }}</button>
+</form>
+<a routerLink="/dogs">Back to list</a> -->
+<p-card>
+    <ng-template pTemplate="header">
+      <h1>{{ dogId ? 'Edit Dog' : 'New Dog' }}</h1>
+    </ng-template>
+    <ng-template pTemplate="content">
+      <form [formGroup]="dogForm" (ngSubmit)="onSubmit()">
+        <div class="p-fluid">
+          <div class="p-field">
+            <label for="name">Name</label>
+            <input id="name" pInputText formControlName="name">
+          </div>
+  
+          <div class="p-field">
+            <label for="breed">Breed</label>
+            <input id="breed" pInputText formControlName="breed">
+          </div>
+
+          <div class="p-field">
+            <label for="bio">Bio</label>
+            <input id="bio" pInputText formControlName="bio">
+          </div>
+  
+          <div class="p-field">
+            <label for="description">Description</label>
+            <input id="description" pInputText formControlName="description">
+          </div>
+  
+          <div class="p-field">
+            <label for="gender">Gender</label>
+            <input id="gender" pInputText formControlName="gender">
+          </div>
+  
+          <div class="p-field">
+            <label for="weight">Weight</label>
+            <input id="weight" pInputText formControlName="weight">
+          </div>
+  
+          <div class="p-field">
+            <label for="dateOfBirth">DOB</label>
+            <p-calendar id="dateOfBirth" formControlName="dateOfBirth" dateFormat="yy-mm-dd"></p-calendar>
+          </div>
+  
+          <div class="p-field">
+            <label for="medicalHistory">Medical History</label>
+            <input id="medicalHistory" pInputText formControlName="medicalHistory">
+          </div>
+  
+          <div class="p-field">
+            <label for="allergies">Allergies</label>
+            <input id="allergies" pInputText formControlName="allergies">
+          </div>
+  
+          <div class="p-field">
+            <label for="image1">Image 1</label>
+            <p-fileUpload name="image1" accept="image/*" customUpload (uploadHandler)="onFileChange($event, 'image1')"></p-fileUpload>
+          </div>
+  
+          <div class="p-field">
+            <label for="image2">Image 2</label>
+            <p-fileUpload name="image2" accept="image/*" customUpload (uploadHandler)="onFileChange($event, 'image2')"></p-fileUpload>
+          </div>
+  
+          <div class="p-field">
+            <label for="image3">Image 3</label>
+            <p-fileUpload name="image3" accept="image/*" customUpload (uploadHandler)="onFileChange($event, 'image3')"></p-fileUpload>
+          </div>
+  
+          <div class="p-field">
+            <button pButton type="submit" label="{{ dogId ? 'Update' : 'Create' }}"></button>
+            <button pButton type="button" label="Back to list" routerLink="/dogs"></button>
+          </div>
+        </div>
+      </form>
+    </ng-template>
+  </p-card>
+  

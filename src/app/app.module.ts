@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { routes } from '../app/app.routes';
@@ -29,6 +29,18 @@ import { MenuComponent } from './components/menu/menu.component';
 import { CommunityEngagementComponent } from './components/community-engagement/community-engagement.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GalleriaModule } from 'primeng/galleria';
+import { ImageModule } from 'primeng/image';
+import { DogsListComponent } from './dogs-list/dogs-list.component';
+import { DogFormComponent } from './dog-form/dog-form.component';
+import { DogDetailsComponent } from './dog-details/dog-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CardModule } from 'primeng/card';
+import { CarouselModule } from 'primeng/carousel';
+import { FileUploadModule } from 'primeng/fileupload';
+import { CalendarModule } from 'primeng/calendar';
+import { ListboxModule } from 'primeng/listbox';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -42,7 +54,10 @@ import { GalleriaModule } from 'primeng/galleria';
     ServiceMarketplaceComponent,
     MenuComponent,
     CommunityEngagementComponent,
-    FooterComponent    
+    FooterComponent,
+    DogsListComponent,
+    DogFormComponent,
+    DogDetailsComponent        
   ],
   imports: [
     BrowserModule,
@@ -56,9 +71,18 @@ import { GalleriaModule } from 'primeng/galleria';
     StyleClassModule,
     BrowserAnimationsModule,
     ToastModule,
-    GalleriaModule     
+    GalleriaModule,
+    ImageModule,
+   ReactiveFormsModule,
+   CardModule,
+   CarouselModule,
+   FileUploadModule, 
+    CalendarModule,
+    ListboxModule, 
+    ConfirmDialogModule,
+
   ],
-  providers: [MessageService ],
+  providers: [MessageService, ConfirmationService],  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DogModel } from '../models/dog.model';
+import { CreateDogModel, DogModel, UpdateDogModel } from '../models/dog.model';
 import { environment } from '../environments/environment';
 
 @Injectable({
@@ -19,13 +19,13 @@ export class DogService {
   getDogById(dogId: string): Observable<DogModel> {
     return this.http.get<DogModel>(`${this.apiUrl}/${dogId}`);
   }
-
-  createDog(dog: DogModel): Observable<DogModel> {
+  
+  createDog(dog: CreateDogModel): Observable<DogModel> {
     return this.http.post<DogModel>(`${this.apiUrl}`, dog);
   }
-
-  updateDog(dog: DogModel): Observable<DogModel> {
-    return this.http.put<DogModel>(`${this.apiUrl}/${dog.id}`, dog);
+  
+  updateDog(dogId: string, dog: UpdateDogModel): Observable<DogModel> {
+    return this.http.put<DogModel>(`${this.apiUrl}/${dogId}`, dog);
   }
 
   deleteDog(dogId: string): Observable<void> {

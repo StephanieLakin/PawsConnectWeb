@@ -1,0 +1,40 @@
+<!-- <h1>{{ dog?.name }}</h1>
+<p>{{ dog?.bio }}</p>
+<p>{{ dog?.description }}</p>
+<p>{{ dog?.breed }}</p>
+<p>{{ dog?.dateOfBirth }}</p>
+<p>{{ dog?.gender }}</p>
+<p>{{ dog?.weight}}</p>
+<p>{{ dog?.medicalHistory }}</p>
+<p>{{ dog?.allergies }}</p>
+<img *ngIf="dog?.imageUrl1" [src]="dog?.imageUrl1" alt="{{ dog?.name }}" class="dog-image">
+<img *ngIf="dog?.imageUrl2" [src]="dog?.imageUrl2" alt="{{ dog?.name }}" class="dog-image">
+<img *ngIf="dog?.imageUrl3" [src]="dog?.imageUrl3" alt="{{ dog?.name }}" class="dog-image">
+<a [routerLink]="['/dogs', dog?.id, 'edit']">Edit</a>
+<a routerLink="/dogs">Back to list</a> -->
+<p-card>
+    <ng-template pTemplate="header">
+      <p-carousel [value]="dogImages" [numVisible]="1" [circular]="true" [autoplayInterval]="3000">
+        <ng-template let-image pTemplate="item">
+          <img [src]="image" alt="{{ dog?.name }}" class="dog-image">
+        </ng-template>
+      </p-carousel>
+    </ng-template>
+    <ng-template pTemplate="content">
+      <h1>{{ dog?.name }}</h1>
+      <p><strong>Bio:</strong> {{ dog?.bio }}</p>
+      <p><strong>Description:</strong> {{ dog?.description }}</p>
+      <p><strong>Breed:</strong> {{ dog?.breed }}</p>
+      <p><strong>Date of Birth:</strong> {{ dog?.dateOfBirth | date:'longDate' }}</p>
+      <p><strong>Gender:</strong> {{ dog?.gender }}</p>
+      <p><strong>Weight:</strong> {{ dog?.weight }} kg</p>
+      <p><strong>Medical History:</strong> {{ dog?.medicalHistory }}</p>
+      <p><strong>Allergies:</strong> {{ dog?.allergies }}</p>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <button pButton type="button" label="Edit" icon="pi pi-pencil" [routerLink]="['/dogs', dog?.id, 'edit']" class="mr-3"></button>
+      <button pButton type="button" label="Back to list" icon="pi pi-arrow-left" routerLink="/dogs"></button>
+    </ng-template>
+  </p-card>
+  
+  

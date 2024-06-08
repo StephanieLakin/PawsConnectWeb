@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { UserModel } from '../models/user.model';
 import { environment } from '../environments/environment';
 
@@ -43,9 +43,25 @@ export class UserService {
     return this.http.post(`${this.apiUrl}/register`, user);
   }
 
+  // login(username: string, email: string, password: string): Observable<any> {
+  //   const credentials = { username, email, password };
+  //   return this.http.post(`${this.apiUrl}/login`, credentials);
+  // }
+
+  
   login(username: string, email: string, password: string): Observable<any> {
-    const credentials = { username, email, password };
-    return this.http.post(`${this.apiUrl}/login`, credentials);
+    const loginRequest = { username, email, password };
+    return this.http.post(`${this.apiUrl}/login`, loginRequest).pipe(
+      tap((response: any) => {
+        // Assuming the response contains the user ID
+        localStorage.setItem('userId', response.userId);
+      })
+    );
+  }
+
+  // Method to get the logged-in user's ID from localStorage
+  getUserId(): string | null {
+    return localStorage.getItem('userId');
   }
 
   verify(token: string): Observable<any> {

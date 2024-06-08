@@ -1,0 +1,18 @@
+.dog-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .p-listbox .p-listbox-item {
+    padding: 1em;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .p-listbox .p-listbox-item .p-d-flex {
+    width: 100%;
+  }
+  
+  .p-listbox .p-listbox-item .p-d-flex .p-button {
+    margin-left: auto;
+  }
+  

@@ -1,0 +1,28 @@
+<!-- <p>dogs-list works!</p>
+<h1>Dogs List</h1>
+<a routerLink="/dogs/new">Add New Dog</a>
+<ul>
+  <li *ngFor="let dog of dogs">
+    <a [routerLink]="['/dogs', dog.id]">{{ dog.name }}</a>
+    <button (click)="deleteDog(dog.id)">Delete</button>
+  </li>
+</ul> -->
+<p-card>
+    <ng-template pTemplate="header">
+      <h1>Dogs List</h1>
+      <button pButton type="button" label="Add New Dog" icon="pi pi-plus" routerLink="/dogs/new"></button>
+    </ng-template>
+    <ng-template pTemplate="content">
+      <p-listbox [options]="dogs" optionLabel="name" (onChange)="onDogSelect($event)">
+        <ng-template let-dog pTemplate="item">
+          <div class="p-d-flex p-ai-center p-jc-between">
+            <a [routerLink]="['/dogs', dog.id]" class="dog-link">{{ dog.name }}</a>
+            <button pButton type="button" icon="pi pi-trash" class="p-button-danger ml-3" (click)="confirmDelete(dog.id)"></button>
+          </div>
+        </ng-template>
+      </p-listbox>
+    </ng-template>
+  </p-card>
+  
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+  
